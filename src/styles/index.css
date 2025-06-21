@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+theme {
+    --color-Neutral9: #09153e;
+    --color-Neutral8: #212636;
+    --color-Neutral7: #2f364b;
+    --color-Neutral6: #545969;
+    --color-Neutral3: #c7c7c7;
+    --color-Neutral2: #d6e2f5;
+    --color-Neutral1: #ededed;
+    --color-Neutral0: #fbfdfe;
+    --color-Red4: #f25c54;
+    --color-Red5: #de473f;
+    --color-Red7: #c7221a;
+    /* - **Light Gradient**: `linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%)`
+    - **Dark Gradient**: `linear-gradient(180deg, #040918 0%, #091540 100%)` */
+  }
