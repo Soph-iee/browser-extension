@@ -4,6 +4,7 @@
     "name": "DevLens",
     "description": "Quickly inspect page layouts and visualize element boundaries.",
     "isActive": true
+    
   },
   {
     "logo": "../src/assets/images/logo-style-spy.svg",
