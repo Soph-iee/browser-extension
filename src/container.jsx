@@ -9,16 +9,32 @@ import { useState } from "react";
 
 function Container() {
   const [cardArray, setCardArray] = useState(ExtensionCards);
-  // const [selected, setSelected] = useState(true);
+  // const [isSelected, setIsSelected] = useState(false);
+
+  const activeBtn = (id) => {
+ return   id ? true : false;
+  };
+
   const toggleActive = (name) => {
     const newArray = cardArray.map((item) => {
       return item.name === name ? { ...item, isActive: !item.isActive } : item;
     });
-    setCardArray(newArray)
+    setCardArray(newArray);
   };
+  const displayExtensions = (value, e) => {
+    console.log(e);
+    const activeExtension = cardArray.filter((extension) => {
+      return extension.isActive === value;
+    });
+    setCardArray(activeExtension);
+  };
+  const displayAll = (value) => {
+    setCardArray(value);
+  };
+
   return (
-    <div className="parent-container h-full bg-linear-to-br from-darkgradient1 to-darkgradient2">
-      <div className="container text-Neutral0 w-9/10 mx-auto my-0 py-4 ">
+    <div className="parent-container   bg-linear-to-br from-darkgradient1 to-darkgradient2">
+      <div className="container h-auto   bg-linear-to-br from-darkgradient1 to-darkgradient2 text-Neutral0 w-9/10 mx-auto my-0 py-4 ">
         <header className="logo bg-Neutral7 rounded-lg p-2 flex flex-row justify-between">
           <img src={logo} alt="logo-icon" />
           <button>
@@ -34,9 +50,30 @@ function Container() {
             Extensions List
           </h1>
           <ul className="flex justify-between">
-            <Buttons label="all" all />
-            <Buttons label="active" />
-            <Buttons label="inactive" />
+            <Buttons
+              label="all"
+              active={() => {
+                activeBtn(1);
+              }}
+              display={() => {
+                displayAll(cardArray, 1);
+              }}
+            />
+            <Buttons
+              label="active"
+              active={() => {
+                activeBtn();
+              }}
+              display={() => {
+                displayExtensions(true, 2);
+              }}
+            />
+            <Buttons
+              label="inactive"
+              display={() => {
+                displayExtensions(false, 3);
+              }}
+            />
           </ul>
         </nav>
         <main className="flex flex-col gap-4 pt-4">
